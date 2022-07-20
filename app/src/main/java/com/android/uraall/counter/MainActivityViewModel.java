@@ -8,19 +8,16 @@ public class MainActivityViewModel extends ViewModel {
     private int count = 1;
     private MutableLiveData<Integer> countLiveData = new MutableLiveData<>();
 
-    public void getDecreasedValue(){
-        --count;
-        countLiveData.setValue(count);
+    public int getDecreasedValue(){
+        return --count;
     }
 
-    public void getIncreasedValue(){
-        ++count;
-        countLiveData.setValue(count);
+    public int getIncreasedValue(){
+        return ++count;
     }
 
-    public MutableLiveData<Integer> getCurrentValue(){
-        countLiveData.setValue(count);
-        return countLiveData;
+    public int getCurrentValue(){
+        return count;
     }
 
 }

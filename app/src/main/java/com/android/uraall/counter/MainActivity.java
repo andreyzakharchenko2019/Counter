@@ -14,23 +14,22 @@ public class MainActivity extends AppCompatActivity {
     private TextView textView;
     MainActivityViewModel model;
 
-    private int count;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         textView = findViewById(R.id.textView);
+        model = new ViewModelProvider(this).get(MainActivityViewModel.class);
+
+        textView.setText(String.valueOf(model.getCurrentValue()));
     }
 
     public void decreaseValue(View view) {
-        count--;
-        textView.setText(String.valueOf(count));
+        textView.setText(String.valueOf(model.getDecreasedValue()));
     }
 
     public void increaseValue(View view) {
-        count++;
-        textView.setText(String.valueOf(count));
+        textView.setText(String.valueOf(model.getIncreasedValue()));
     }
 }
